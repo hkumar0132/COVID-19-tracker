@@ -1,0 +1,119 @@
+<div id = "container">
+<div style = "margin : 15px">
+    <a style = "margin-right : 7px" routerLink = "/subscribe"
+     class = "btn btn-primary">
+      Subscribe
+    </a>
+  
+    <div style = "width : 150px; display : inline-block;        
+     font-family: Georgia, 'Times New Roman', Times, serif;">
+      <select id = "selected_country" name = "selected_country"
+         (change) = "showData($event)" class = "form-control">
+          <option selected>Choose country</option>
+          <option id = "country" name = "country" class = "form-control" 
+                  *ngFor = "let country of countries; let myIndex = index" 
+                  value = "{{myIndex}}">
+                  {{country}}
+          </option>
+      </select>
+    </div> 
+</div>
+
+<div style = "margin : 1%; ">
+  <div>
+    <p style = "font-family: Georgia, 'Times New Roman', Times, serif;" 
+        class = "h2 mb-2">
+      <b>Covid-19 updates</b>
+    </p>
+  </div>
+  <section class = "content">
+    <div class="row">
+      <div class="col-md-6" id = "bar">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('bar')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas baseChart height = "210%"
+                        [datasets]="chartData" 
+                        [labels]="chartLabels"
+                        [options]="chartOptions"
+                        [colors]="chartColors" 
+                        [chartType]="bar">
+                </canvas>
+            </div>
+            </div>
+        </div>
+    </div> 
+     <div class="col-md-6" id = "line">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('line')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas height = "210%" baseChart 
+                        [datasets]="chartData" 
+                        [options]="chartOptions"
+                        [labels]="chartLabels" 
+                        [colors]="lineColors" 
+                        [chartType]="line">
+                </canvas>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" id = 'doughnut'>
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('doughnut')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas baseChart height = "210%"
+                        [datasets]="chartData" 
+                        [colors]="chartColors" 
+                        [labels]="chartLabels"
+                        [chartType]="doughnut">
+                </canvas>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" id = "pie">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('pie')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas baseChart height = "210%"
+                        [datasets]="chartData" 
+                        [colors]="chartColors" 
+                        [labels]="chartLabels"
+                        [chartType]="pie">
+                </canvas>
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,111 @@
+<div style = "text-align: center; margin-bottom: 3%;">
+    <a style = "float : right; margin-right: 30px;" class = "btn btn-primary" 
+      routerLink = "/">
+      Home
+    </a>
+    <div>
+      <p style = "text-align : center; text-transform: capitalize; font-family: Georgia, 'Times New Roman', Times, serif;"
+       class = "h2 mb-2"><b>{{countryName}}</b></p>
+    </div>
+</div>
+
+<div *ngIf = "error">
+    <p class = "h1 mb-1" style = "text-align: center; margin-top: 200px;  
+      font-family: Georgia, 'Times New Roman', Times, serif;">
+      Data not available for <span style = "text-transform: capitalize;">{{countryName}}</span>
+    </p>
+</div>
+
+<div *ngIf = "!error" id = "allCharts">
+<section class="content">
+    <div class="row">
+      <div class="col-md-6" id = "bar">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('bar')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas height = "210%" baseChart 
+                        [datasets]="chartData" 
+                        [labels]="chartLabels" 
+                        [options]="chartOptions"
+                        [colors]="chartColors" 
+                        [chartType]="bar">
+                </canvas>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" id = "line">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('line')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas height = "210%" baseChart 
+                        [datasets]="chartData" 
+                        [labels]="chartLabels" 
+                        [options]="chartOptions"
+                        [colors]="lineColors" 
+                        [chartType]="line">
+                </canvas>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" id = "doughnut">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('doughnut')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas height = "250%" baseChart 
+                        [datasets]="chartData" 
+                        [labels]="chartLabels" 
+                        [colors]="chartColors" 
+                        [chartType]="doughnut">
+                </canvas>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" id = "pie">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <div class = "box-title" style = "float : left">
+              <a (click) = "exportAsPDF('pie')">
+                Download 
+              </a>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+                <canvas height = "250%" baseChart 
+                        [datasets]="chartData" 
+                        [labels]="chartLabels" 
+                        [colors]="chartColors" 
+                        [chartType]="pie">
+                </canvas>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
