@@ -5,4 +5,3 @@ Full stack COVID-19 tracker built with HTML, CSS, Bootstrap, Angular 9, Node.js,
 - Availability for users to subscribe to receive updates through email
 - Email verification to avoid spam
 - Converted into an android app using Cordova
-- Frontend deployed[https://covid.codestoresolutions.com]
